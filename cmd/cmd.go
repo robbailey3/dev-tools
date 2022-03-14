@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"github.com/robbailey3/dev-tools/tcp"
 	"github.com/spf13/cobra"
 	"log"
 )
@@ -18,6 +19,7 @@ var jwtCmd = &cobra.Command{
 
 func Execute() {
 	rootCmd.AddCommand(jwtCmd)
+	rootCmd.AddCommand(tcp.Commands())
 	if err := rootCmd.Execute(); err != nil {
 		log.Fatal(err.Error())
 	}
