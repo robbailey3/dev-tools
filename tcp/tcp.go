@@ -2,6 +2,7 @@ package tcp
 
 import (
 	"fmt"
+	"github.com/robbailey3/dev-tools/ui"
 	"net"
 	"sync"
 	"time"
@@ -23,8 +24,10 @@ var tcp = &cobra.Command{
 var scan = &cobra.Command{
 	Use: "scan",
 	Run: func(cmd *cobra.Command, args []string) {
-		openPorts := PortScan()
-		fmt.Printf("Open ports: %v\n", openPorts)
+		view := ui.New()
+		view.Start()
+		view.SetLoading(true)
+
 	},
 }
 
